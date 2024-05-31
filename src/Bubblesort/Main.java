@@ -1,25 +1,21 @@
-package Selectionsort;
+package Bubblesort;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {5, 6, 7, 8, 3, 4, 5, 1, 20};
+        int[] array = {1,7,4,9,3,45,876,23,765,346,0,548,956,354};
         int temp;
 
         System.out.println("Given Array: ["+arrayToString(array)+"]\n");
 
-        for (int i = 0; i < array.length - 1; i++) {
-            int low = i;  // Initialize `low` to the current position
+        while (!isSorted(array)) {
+            for (int i = 0; i < array.length - 1; i++) {
 
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[low]) {
-                    low = j;
+                if (array[i+1] < array[i]) {
+                    temp = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = temp;
                 }
             }
-
-            // Swap elements
-            temp = array[i];
-            array[i] = array[low];
-            array[low] = temp;
         }
         System.out.println("Array sorted successfully\n");
         System.out.println("OutputArray: ["+arrayToString(array)+"]");

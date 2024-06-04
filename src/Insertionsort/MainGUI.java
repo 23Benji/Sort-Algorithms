@@ -6,6 +6,7 @@ import java.util.Random;
 
 
 public class MainGUI {
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainGUI::createAndShowGUI);
     }
@@ -21,7 +22,7 @@ public class MainGUI {
 
         int[] array= new int[144];
         for(int i = 0;i<144;i++){
-            array[i]= random.nextInt(150);
+            array[i]= random.nextInt(175);
         }
 
         SortingPanel sortingPanel = new SortingPanel(array);
@@ -33,6 +34,7 @@ public class MainGUI {
 }
 
 class SortingPanel extends JPanel {
+    public static boolean isSorted;
     private int[] array;
     private static final int BAR_WIDTH = 10;
     private static final int BAR_HEIGHT_MULTIPLIER = 5;
@@ -46,12 +48,20 @@ class SortingPanel extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(0,0,2800,1800);
-        g.setColor(Color.WHITE);
-        for (int i = 0; i < array.length; i++) {
-            g.setColor(new Color(148, 4, 4, 255));
+        if(!isSorted) {
+            for (int i = 0; i < array.length; i++) {
+                g.setColor(new Color(148, 4, 4, 255));
+                g.fillRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+                g.setColor(new Color(255, 0, 0, 124));
+                g.drawRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+            }
+        }else{
+            for (int i = 0; i < array.length; i++) {
+            g.setColor(new Color(14, 148, 4, 255));
             g.fillRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
-            g.setColor(new Color(255, 0, 0, 124));
+            g.setColor(new Color(55, 255, 0, 124));
             g.drawRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+            }
         }
     }
 
@@ -65,12 +75,17 @@ class SortingPanel extends JPanel {
             }
             array[j + 1] = current;
 
+            if(i==array.length-1){
+                isSorted=true;
+            }
+
             repaint();
             try {
-                Thread.sleep(50);  // Pause to visualize sorting
+                Thread.sleep(500);  // Pause to visualize sorting
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
 
     }

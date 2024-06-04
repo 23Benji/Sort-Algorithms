@@ -17,9 +17,9 @@ public class MainGUI {
         int HEIGHT = 1800;
         frame.setSize(WIDTH, HEIGHT);
         frame.setLocation(-7,-5);
-        int[] array= new int[144];
-        for(int i = 0;i<144;i++){
-            array[i]= random.nextInt(150);
+        int[] array = new int[144];
+        for (int i = 0; i < 144; i++) {
+            array[i] = random.nextInt(150);
         }
 
         SortingPanel sortingPanel = new SortingPanel(array);
@@ -32,26 +32,36 @@ public class MainGUI {
 
 class SortingPanel extends JPanel {
     private int[] array;
+    private boolean[] sorted;
     private static final int BAR_WIDTH = 10;
     private static final int BAR_HEIGHT_MULTIPLIER = 5;
 
     public SortingPanel(int[] array) {
         this.array = array;
+        this.sorted = new boolean[array.length];
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.black);
-        g.fillRect(0,0,2800,1800);
-        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 2800, 1800);
         for (int i = 0; i < array.length; i++) {
-            g.setColor(Color.WHITE);
-            g.fillRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
-            g.setColor(Color.gray);
-            g.drawRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+            if (sorted[i]) {
+                g.setColor(new Color(14, 148, 4, 255));
+                g.fillRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+                g.setColor(new Color(55, 255, 0, 124));
+                g.drawRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+            } else {
+                g.setColor(new Color(148, 4, 4, 255));
+                g.fillRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+                g.setColor(new Color(255, 0, 0, 124));
+                g.drawRect(i * BAR_WIDTH, getHeight() - array[i] * BAR_HEIGHT_MULTIPLIER, BAR_WIDTH, array[i] * BAR_HEIGHT_MULTIPLIER);
+
+            }
         }
     }
+
     public void sort() {
         int temp;
         for (int i = 0; i < array.length - 1; i++) {
@@ -67,6 +77,7 @@ class SortingPanel extends JPanel {
             array[i] = array[low];
             array[low] = temp;
 
+            sorted[i] = true;
             repaint();
             try {
                 Thread.sleep(50);  // Pause to visualize sorting
@@ -74,6 +85,7 @@ class SortingPanel extends JPanel {
                 e.printStackTrace();
             }
         }
-        System.out.println("Array sorted successfully");
+        sorted[array.length - 1] = true;  // Ensure the last element is marked as sorted
+        repaint();
     }
 }

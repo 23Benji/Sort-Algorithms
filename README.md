@@ -16,12 +16,9 @@ This project aims to provide a hands-on understanding of sorting algorithms by v
 ## Screenshots
 
 Here are some screenshots of the application in action:
-
-<h2>Screenshots</h2>
 <div style="display: flex;">
-  <img src="res/images/screenshot1.png" alt="Sorting Visualization 1" width="300" style="margin-right: 10px;">
-  <img src="res/images/screenshot2.png" alt="Sorting Visualization 2" width="300" style="margin-right: 10px;">
-  <img src="res/images/screenshot3.png" alt="Sorting Visualization 3" width="300">
+  <img src="res/images/Screenshot1.png" alt="Sorting Visualization 1" width="300" style="margin-right: 10px;">
+  <img src="res/images/Screenshot2.png" alt="Sorting Visualization 2" width="300" style="margin-right: 10px;">
 </div>
 
 ## Technologies Used

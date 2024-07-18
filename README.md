@@ -42,12 +42,7 @@ To get started with the application, follow these steps:
 
 2. **Open the project in your favorite IDE**: Open the project folder in an IDE like IntelliJ IDEA, Eclipse, or NetBeans.
 
-3. **Build the project using Maven**:
-   ```bash
-   mvn clean install
-   ```
-
-4. **Run the application**: Locate the main class (`Main.java`) and run it.
+3. **Run the application**: Locate the main class (`Main.java`) and run it.
 
 ## Usage
 

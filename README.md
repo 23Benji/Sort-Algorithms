@@ -28,7 +28,6 @@ Here are some screenshots of the application in action:
 
 - **Java**: Core programming language used.
 - **Swing**: For building the graphical user interface.
-- **Maven**: For project management and dependency management.
 
 ## Installation
 
@@ -47,40 +46,15 @@ To get started with the application, follow these steps:
 ## Usage
 
 1. **Select a Sorting Algorithm**: Choose from Bubble Sort, Merge Sort, or Quick Sort.
-2. **Generate Array**: Click the "Generate Array" button to create a random array.
-3. **Start Sorting**: Press the "Start" button to begin the visualization.
-4. **Adjust Speed**: Use the slider to control the speed of the visualization.
-5. **Pause/Resume**: Use the "Pause" button to pause the visualization and "Resume" to continue.
+2. **Start Sorting**: Press the "Start" button to begin the visualization.
+3. **Adjust Speed**: Use the slider to control the speed of the visualization.
 
-## Code Structure
-
-- `src/main/java`: Contains the main Java source code.
-  - `gui`: Contains classes related to the graphical user interface.
-    - `MainFrame.java`: The main window of the application.
-    - `ControlPanel.java`: The panel with controls for the sorting algorithms.
-  - `sorting`: Contains classes implementing the sorting algorithms.
-    - `BubbleSort.java`
-    - `MergeSort.java`
-    - `QuickSort.java`
-- `src/main/resources`: Contains resources such as images and styles.
-- `pom.xml`: Maven configuration file.
-
-## Future Enhancements
+## Future Updates
 
 - **Additional Algorithms**: Implement and visualize more sorting algorithms such as Insertion Sort, Selection Sort, and Heap Sort.
 - **Enhanced Visualization**: Add more detailed animations to illustrate key steps in the algorithms.
 - **User Input**: Allow users to input their own arrays for sorting.
 - **Comparative Analysis**: Provide side-by-side visual comparison of two or more sorting algorithms.
-
-## Contributing
-
-Contributions are welcome! If you have any improvements, bug fixes, or new features in mind, feel free to fork the repository and submit a pull request. You can also open an issue for bug reports or feature requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a pull request
 
 ## License
 
